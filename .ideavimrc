@@ -1,0 +1,6 @@
+map <c-x> <Action>(ShowHoverInfo)
+Plug 'tpope/vim-surround'
+Plug 'machakann/vim-highlightedyank'
+Plug 'vim-scripts/argtextobj.vim'
+Plug 'chrisbra/matchit'
+let g:argtextobj_pairs="(:),{:},<:>"
