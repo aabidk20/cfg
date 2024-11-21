@@ -8,10 +8,18 @@ local M = {}
 M.base46 = {
   theme = "catppuccin",
 
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
+  -- theme_toggle = {
+  --   "catppuccin",
+  --   "github_light",
   -- },
+}
+
+M.base46.hl_override = require("hl")[M.base46.theme]
+
+M.ui = {
+  statusline = {
+    theme = "vscode_colored",
+  },
 }
 
 return M

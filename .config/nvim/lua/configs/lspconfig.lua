@@ -13,6 +13,8 @@ local default_servers = {
   "cssls",
   "dockerls",
   "sqlls",
+  "yamlls",
+  "jsonls",
 }
 
 -- lsps with default config
@@ -94,4 +96,28 @@ lspconfig.lua_ls.setup({
       },
     },
   },
+})
+
+lspconfig.tailwindcss.setup({
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  filetypes = {
+    "html",
+    "css",
+    "scss",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "svelte",
+    "vue",
+  },
+})
+
+lspconfig.bashls.setup({
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  filetypes = { "sh", "zsh" },
 })
