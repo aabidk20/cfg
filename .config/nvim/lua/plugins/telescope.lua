@@ -8,16 +8,17 @@ return {
     },
   },
   opts = {
-    extensions_list = { "themes", "terms", "fzf" },
-    defaults = {
-      borderchars = {
-        prompt = { " ", " ", " ", " ", " ", " ", " ", " " },
-        results = { " ", " ", " ", " ", " ", " ", " ", " " },
-        preview = { " ", " ", " ", " ", " ", " ", " ", " " },
-      },
-    },
+    -- extensions_list = { "themes", "terms", "fzf" },
+    -- defaults = {
+    --   borderchars = {
+    --     prompt = { " ", " ", " ", " ", " ", " ", " ", " " },
+    --     results = { " ", " ", " ", " ", " ", " ", " ", " " },
+    --     preview = { " ", " ", " ", " ", " ", " ", " ", " " },
+    --   },
+    -- },
   },
   config = function()
-    require("telescope").load_extension "fzf"
+    require("telescope").load_extension("fzf")
+    require("telescope").load_extension("import")
   end,
 }
