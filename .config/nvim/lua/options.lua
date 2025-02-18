@@ -1,4 +1,4 @@
-require "nvchad.options"
+require("nvchad.options")
 
 -- add yours here!
 
@@ -6,3 +6,4 @@ require "nvchad.options"
 -- o.cursorlineopt ='both' -- to enable cursorline!
 --
 vim.lsp.inlay_hint.enable(true, nil)
+vim.opt.clipboard = "unnamedplus"

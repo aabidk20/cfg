@@ -6,12 +6,12 @@
 local M = {}
 
 M.base46 = {
-  theme = "catppuccin",
+  theme = "rosepine-dawn",
 
-  -- theme_toggle = {
-  --   "catppuccin",
-  --   "github_light",
-  -- },
+  theme_toggle = {
+    "rosepine-dawn",
+    "rosepine",
+  },
 }
 
 M.base46.hl_override = require("hl")[M.base46.theme]
@@ -19,6 +19,17 @@ M.base46.hl_override = require("hl")[M.base46.theme]
 M.ui = {
   statusline = {
     theme = "vscode_colored",
+  },
+  cmp = {
+    format_colors = {
+      tailwind = true,
+    },
+  },
+}
+
+M.term = {
+  winopts = {
+    winfixbuf = true,
   },
 }
 

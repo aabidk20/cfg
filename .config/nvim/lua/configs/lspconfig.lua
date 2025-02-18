@@ -7,6 +7,24 @@ local on_attach = nvlsp.on_attach
 local on_init = nvlsp.on_init
 local capabilities = nvlsp.capabilities
 
+-- Setup for go-template-lsp
+-- local function start_go_template_lsp()
+--   vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "html",
+--     callback = function(args)
+--       vim.lsp.start({
+--         name = "go-tmpl-lsp",
+--         cmd = { "go-template-lsp" },
+--         capabilities = capabilities,
+--         -- root_dir = vim.fn.getcwd(),
+--         root_dir = vim.fs.root(args.buf, { "go.mod" }),
+--       })
+--     end,
+--   })
+-- end
+--
+-- start_go_template_lsp()
+
 -- EXAMPLE
 local default_servers = {
   "html",
@@ -15,6 +33,8 @@ local default_servers = {
   "sqlls",
   "yamlls",
   "jsonls",
+  "clangd",
+  -- "ltex",
 }
 
 -- lsps with default config
@@ -120,4 +140,40 @@ lspconfig.bashls.setup({
   on_init = on_init,
   capabilities = capabilities,
   filetypes = { "sh", "zsh" },
+})
+
+lspconfig.htmx.setup({
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  filetypes = { "html" },
+})
+
+lspconfig.markdown_oxide.setup({
+  -- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
+  -- Create Unresolved File code action, resolving completions for unindexed code blocks, ...
+  capabilities = vim.tbl_deep_extend("force", capabilities, {
+    workspace = {
+      didChangeWatchedFiles = {
+        dynamicRegistration = true,
+      },
+    },
+  }),
+  on_attach = on_attach, -- configure your on attach config
+  on_init = on_init,
+})
+
+lspconfig.phpactor.setup({
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  root_dir = function(_)
+    return vim.fn.getcwd()
+  end,
+  init_options = {
+    ["language_server_phpstan.enabled"] = false,
+    ["language_server_psalm.enabled"] = false,
+    ["language_server_worse_reflection.inlay_hints.enable"] = true,
+    ["language_server_worse_reflection.inlay_hints.types"] = true,
+  },
 })

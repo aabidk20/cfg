@@ -6,6 +6,14 @@ return {
     require("nvim-treesitter.configs").setup({
       -- https://www.josean.com/posts/nvim-treesitter-and-textobjects
       textobjects = {
+        lsp_interop = {
+          enable = true,
+          border = "none",
+          peek_definition_code = {
+            ["<leader>pf"] = "@function.outer",
+            ["<leader>pC"] = "@class.outer",
+          },
+        },
         select = {
           enable = true,
 
@@ -22,21 +30,37 @@ return {
               query = "@function.inner",
               desc = "Select inner part of a function",
             },
-            ["ac"] = {
+            ["aC"] = {
               query = "@class.outer",
               desc = "Select outer part of a class",
             },
-            ["ic"] = {
+            ["iC"] = {
               query = "@class.inner",
               desc = "Select inner part of a class region",
             },
-            ["i,"] = {
+            ["ia"] = {
               query = "@parameter.inner",
               desc = "Select inner part of a parameter",
             },
-            ["a,"] = {
+            ["aa"] = {
               query = "@parameter.outer",
               desc = "Select outer part of a parameter",
+            },
+            ["il"] = {
+              query = "@loop.inner",
+              desc = "Select inner part of a loop",
+            },
+            ["al"] = {
+              query = "@loop.outer",
+              desc = "Select outer part of a loop",
+            },
+            ["ic"] = {
+              query = "@conditional.inner",
+              desc = "Select inner part of a conditional",
+            },
+            ["ac"] = {
+              query = "@conditional.outer",
+              desc = "Select outer part of a conditional",
             },
           },
           selection_modes = {
@@ -44,17 +68,17 @@ return {
             ["@function.outer"] = "V",
             ["@class.outer"] = "V",
           },
-          include_surrounding_whitespace = true,
+          include_surrounding_whitespace = false,
         },
         swap = {
           enable = true,
           swap_next = {
-            ["<leader>snp"] = "@parameter.inner",
+            ["<leader>sna"] = "@parameter.inner",
             ["<leader>snf"] = "@function.outer",
             ["<leader>snc"] = "@class.outer",
           },
           swap_previous = {
-            ["<leader>spp"] = "@parameter.inner",
+            ["<leader>spa"] = "@parameter.inner",
             ["<leader>spf"] = "@function.outer",
             ["<leader>spc"] = "@class.outer",
           },

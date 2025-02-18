@@ -29,6 +29,14 @@ return {
       use_languagetree = true,
     },
 
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        node_incremental = "v",
+        node_decremental = "V",
+      },
+    },
+
     indent = { enable = true },
   },
 }
