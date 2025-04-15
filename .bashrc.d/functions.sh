@@ -114,6 +114,13 @@ gitopen() {
   esac
 }
 
+b5() {
+  for _ in {1..5}; do
+    curl -sSw '%header{location}\n' https://indieblog.page/random |
+      sed -e s/.utm_.*$//
+  done
+}
+
 # Show custom functions and aliases
 userhelp() {
   local search="$1"
