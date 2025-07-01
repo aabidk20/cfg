@@ -6,15 +6,33 @@
 local M = {}
 
 M.base46 = {
-  theme = "rosepine-dawn",
+  theme = "tundra",
 
   theme_toggle = {
-    "rosepine-dawn",
-    "rosepine",
+    "tundra",
+    "tundra",
+  },
+  changed_themes = {
+    catppuccin = {
+      base_16 = {
+        base00 = "#181825",
+      },
+    },
+    github_dark = {
+      base_16 = {
+        base0A = "white",
+      },
+    },
+    tundra = {
+      base_16 = {
+        base00 = "#181825",
+      },
+    },
+  },
+  integrations = {
+    "render-markdown",
   },
 }
-
-M.base46.hl_override = require("hl")[M.base46.theme]
 
 M.ui = {
   statusline = {

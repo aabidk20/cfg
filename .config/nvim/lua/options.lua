@@ -7,3 +7,6 @@ require("nvchad.options")
 --
 vim.lsp.inlay_hint.enable(true, nil)
 vim.opt.clipboard = "unnamedplus"
+
+-- Keep the cursor centered when scrolling
+-- vim.opt.scrolloff = 999
