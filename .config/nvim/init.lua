@@ -23,11 +23,15 @@ require("lazy").setup({
   },
 
   { import = "plugins" },
+  { import = "nvchad.blink.lazyspec" },
 }, lazy_config)
 
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
+
+-- load render-markdown
+dofile(vim.g.base46_cache .. "render-markdown")
 
 require("options")
 require("nvchad.autocmds")
