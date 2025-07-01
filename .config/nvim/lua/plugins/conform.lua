@@ -19,6 +19,7 @@ return {
       go = { "goimports", "gofmt" },
       html = { "prettierd" },
       php = { "pint" },
+      blade = { "prettierd" },
     },
 
     format_on_save = function(bufnr)

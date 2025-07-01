@@ -27,7 +27,6 @@ local capabilities = nvlsp.capabilities
 
 -- EXAMPLE
 local default_servers = {
-  "html",
   "cssls",
   "dockerls",
   "sqlls",
@@ -45,6 +44,13 @@ for _, lsp in ipairs(default_servers) do
     capabilities = capabilities,
   })
 end
+
+lspconfig.html.setup({
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  filetypes = { "html", "blade" },
+})
 
 lspconfig.ts_ls.setup({
   on_attach = on_attach,
@@ -79,6 +85,7 @@ lspconfig.emmet_language_server.setup({
     "scss",
     "pug",
     "typescriptreact",
+    "blade",
   },
 })
 
@@ -132,6 +139,8 @@ lspconfig.tailwindcss.setup({
     "typescriptreact",
     "svelte",
     "vue",
+    "blade",
+    "astro",
   },
 })
 
@@ -170,10 +179,23 @@ lspconfig.phpactor.setup({
   root_dir = function(_)
     return vim.fn.getcwd()
   end,
+  filetypes = { "php", "blade" },
   init_options = {
     ["language_server_phpstan.enabled"] = false,
     ["language_server_psalm.enabled"] = false,
     ["language_server_worse_reflection.inlay_hints.enable"] = true,
     ["language_server_worse_reflection.inlay_hints.types"] = true,
+  },
+})
+
+-- Astro server
+lspconfig.astro.setup({
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  init_options = {
+    typescript = {
+      tsdk = "/home/aabid/.local/share/nvim/mason/packages/typescript-language-server/node_modules/typescript/lib/",
+    },
   },
 })

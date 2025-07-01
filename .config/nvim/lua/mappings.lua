@@ -67,6 +67,30 @@ map({ "n", "v" }, "<leader><leader>", "<Cmd>w<CR>", { desc = "Save" })
 map("i", "<A-l>", "->")
 map("i", "<A-L>", "=>")
 
+-- Laravel mappings
+-- Override 'gf' for laravel [Disabled for blade-nav plugin for now]
+-- map("n", "gf", function()
+--   if require("laravel").app("gf").cursor_on_resource() then
+--     return "<cmd>Laravel gf<CR>"
+--   else
+--     return "gf"
+--   end
+-- end, { noremap = true, expr = true })
+
+-- Leader L for :Laravel
+map("n", "<leader>L", "<Cmd>Laravel<CR>", { desc = "Laravel" })
+
+--- Telescope live grep args
+map("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+
+-- WRT to the above example, you can add the following to your custom functions file: for log:
+map(
+  "n",
+  "<leader>A",
+  "<Cmd>lua require('custom.logging').quick_log()<CR>",
+  { desc = "Open daily log in floating window" }
+)
+
 -- Add groups to which-key
 local wk = require("which-key")
 wk.add({
