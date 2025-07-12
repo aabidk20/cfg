@@ -1,15 +1,10 @@
--- This file needs to have same structure as nvconfig.lua
--- https://github.com/NvChad/ui/blob/v3.0/lua/nvconfig.lua
--- Please read that file to know all available options :(
-
----@type ChadrcConfig
 local M = {}
 
 M.base46 = {
   theme = "tundra",
 
   theme_toggle = {
-    "tundra",
+    "github_light",
     "tundra",
   },
   changed_themes = {
@@ -29,26 +24,11 @@ M.base46 = {
       },
     },
   },
-  integrations = {
-    "render-markdown",
-  },
 }
 
 M.ui = {
   statusline = {
     theme = "vscode_colored",
-  },
-  cmp = {
-    icons_left = true,
-    format_colors = {
-      tailwind = true,
-    },
-  },
-}
-
-M.term = {
-  winopts = {
-    winfixbuf = true,
   },
 }
 
