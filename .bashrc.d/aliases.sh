@@ -12,3 +12,4 @@ alias gc='git commit -m'
 alias cod='config diff'
 alias coa='config add'
 alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
+alias lvim="NVIM_APPNAME=lazyvim nvim"

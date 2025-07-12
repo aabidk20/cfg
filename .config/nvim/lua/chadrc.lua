@@ -6,11 +6,11 @@
 local M = {}
 
 M.base46 = {
-  theme = "tundra",
+  theme = "github_light",
 
   theme_toggle = {
-    "tundra",
-    "tundra",
+    "github_light",
+    "github_light",
   },
   changed_themes = {
     catppuccin = {
@@ -39,6 +39,7 @@ M.ui = {
     theme = "vscode_colored",
   },
   cmp = {
+    icons_left = true,
     format_colors = {
       tailwind = true,
     },
