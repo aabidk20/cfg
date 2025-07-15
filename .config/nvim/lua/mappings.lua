@@ -1,7 +1,7 @@
 require("nvchad.mappings")
 
 local map = vim.keymap.set
-local nomap = vim.keymap.del
+local del = vim.keymap.del
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 -- map("i", "jk", "<ESC>")
@@ -79,6 +79,8 @@ map("i", "<A-L>", "=>")
 
 -- Leader L for :Laravel
 map("n", "<leader>L", "<Cmd>Laravel<CR>", { desc = "Laravel" })
+
+map("n", "<leader>d", "<Cmd>Dotnet<CR>", { desc = "Dotnet" })
 
 --- Telescope live grep args
 map("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
